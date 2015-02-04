@@ -1,0 +1,188 @@
+/**
+an introduction to c!
+stuart h
+feb 2015
+**/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int forLoops(void)
+{
+	int i, j;
+
+	for (i = 0; i <= 10; i++)
+	{
+		for (j = i + 1; j < 10; j++)
+		{
+			printf("%d", j);
+		}
+	printf("\n");
+	}
+	printf("------------------------\n\n\n");
+	for (i = 10; i > 0; i--)
+	{
+		for (j = i-1; j < 10; j++)
+		{
+			printf("%d", j);
+		}
+		printf("\n");
+	}
+	return 0;
+
+}
+
+int enumPractice(void)
+{
+	enum theMonths
+	{
+		january=1,
+		february,
+		march,
+		april,
+		may,
+		june,
+		july,
+		august,
+		september,
+		october,
+		november,
+		december
+	};
+
+	enum theMonths usersInput;
+	int days;
+	char selectedMonth[10];
+	int validSelection = 0;
+
+	printf("Please enter a month number: ");
+	scanf_s("%d", &usersInput);
+
+	switch (usersInput)
+	{
+	case january:
+		days = 31;
+		strcpy(selectedMonth, "January");
+		validSelection = 1;
+		break;
+	case february:
+		days = 28;
+		strcpy(selectedMonth, "February");
+		validSelection = 1;
+		break;
+	case march:
+		days = 31;
+		strcpy(selectedMonth, "March");
+		validSelection = 1;
+		break;
+	case april:
+		days = 30;
+		strcpy(selectedMonth, "April");
+		validSelection = 1;
+		break;
+	case may:
+		days = 31;
+		strcpy(selectedMonth, "May");
+		validSelection = 1;
+		break;
+	case june:
+		days = 31;
+		strcpy(selectedMonth, "June");
+		validSelection = 1;
+		break;
+	case july:
+		days = 31;
+		strcpy(selectedMonth, "July");
+		validSelection = 1;
+		break;
+	case august:
+		days = 31;
+		strcpy(selectedMonth, "August");
+		validSelection = 1;
+		break;
+	case september:
+		days = 31;
+		strcpy(selectedMonth, "September");
+		validSelection = 1;
+		break;
+	case october:
+		days = 31;
+		strcpy(selectedMonth, "October");
+		validSelection = 1;
+		break;
+	case november:
+		days = 31;
+		strcpy(selectedMonth, "November");
+		validSelection = 1;
+		break;
+	case december:
+		days = 31;
+		strcpy(selectedMonth, "December");
+		validSelection = 1;
+		break;
+	default:
+		printf("That's not a month dum dum\n");
+		break;
+	}
+
+	if (validSelection != 0)
+	{
+		printf("You selected %s which has %d days", selectedMonth, days);
+	}
+
+	return 0;
+}
+
+int questionEleven(void)
+{
+	int inputInt;
+	int ones;
+	int sum = 0;
+	printf("Please enter an integer: ");
+	scanf_s("%d", &inputInt);
+	while (inputInt != 0)
+	{
+		ones = inputInt % 10;
+		sum += ones;
+		inputInt /= 10;
+	}
+	printf("the sum of that integer is %d\n", sum);
+	return 0;
+}
+
+
+int main(void)
+{
+	enum selection
+	{
+		qEleven=1,
+		loops,
+		ePractice
+	};
+
+	enum selection usersSelection;
+	int done = 0;
+
+	printf("Select from the following:\n");
+	printf("\t1) questionEleven()\n");
+	printf("\t2) forLoops()\n");
+	printf("\t3) enumPractice()\n");
+	scanf_s("%d", &usersSelection);
+
+	switch (usersSelection)
+	{
+	case qEleven:
+		questionEleven();
+		break;
+	case loops:
+		forLoops();
+		break;
+	case ePractice:
+		enumPractice();
+		break;
+	default:
+		printf("invalid selection\n");
+		break;
+	}
+	return 0;	
+}
